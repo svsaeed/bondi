@@ -542,7 +542,7 @@ export class BondiRoom {
     // Keep all played cards visible long enough for every player to clearly see
     // the off-suit break card before the next play is accepted.
     g.actionLockUntil = resolutionAt + 2600;
-    g.message = `Bondi — ${breaker.name} broke suit. ${picker.name} had the highest card of the led suit and picks up all ${cards.length} cards.`;
+    g.message = `BONDI — ${picker.name}`;
     g.trick = [];
     g.ledSuit = null;
 
@@ -572,7 +572,7 @@ export class BondiRoom {
     // A shorter pause for a normal completed trick lets players see the
     // highest card before the bustle is visually discarded.
     g.actionLockUntil = resolutionAt + 1700;
-    g.message = `Hingaifi — Everyone followed ${g.lastResolution.ledSuit}. ${g.lastResolution.cardCount} cards are discarded. ${winner.name} had the highest card and leads next.`;
+    g.message = `HINGAIFI`;
     g.trick = [];
     g.ledSuit = null;
 
