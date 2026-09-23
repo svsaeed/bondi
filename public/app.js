@@ -205,19 +205,20 @@ function renderResolution() {
 
   if (r.type === "pickup") {
     box.classList.add("bondi-event");
-    label.textContent = "Bondi";
-    detail.textContent = `${r.breakerName} broke ${SYM[r.ledSuit]} with ${r.breakerCard ? cardText(r.breakerCard) : "an off-suit card"}. ${r.pickerName} had the highest card of the led suit and picks up all ${r.cardCount} cards.`;
+    label.textContent = "BONDI";
+    detail.textContent = r.pickerName || "";
   } else if (r.type === "wholehand") {
     box.classList.add("wholehand-event");
     label.textContent = "Whole Hand";
     detail.textContent = `${r.requesterName} takes all ${r.cardCount} remaining cards from ${r.targetName}. ${r.targetName} immediately finishes #${r.finish}.`;
   } else {
     box.classList.add("hingaifi-event");
-    label.textContent = "Hingaifi";
-    detail.textContent = `Everyone followed ${SYM[r.ledSuit]}. ${r.cardCount} cards are discarded. ${r.winnerName} had the highest card and leads next.`;
+    label.textContent = "HINGAIFI";
+    detail.textContent = "";
   }
 
-  box.append(label, detail);
+  box.append(label);
+  if (detail.textContent) box.append(detail);
 }
 
 function renderWholeHandOffer() {
