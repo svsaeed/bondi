@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>BONDI — Maldivian Card Game</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="joinScreen" class="screen join-screen">
+    <div class="join-card">
+      <div class="logo-mark">☼</div>
+      <h1>BONDI</h1>
+      <p class="subtitle">Maldivian Card Game</p>
+      <label>Your name</label>
+      <input id="nameInput" maxlength="20" placeholder="Enter your name" autocomplete="name">
+      <button id="createBtn" class="primary">Create a room</button>
+      <div class="divider"><span>OR</span></div>
+      <label>Room code</label>
+      <input id="roomInput" maxlength="5" placeholder="ABCDE" autocapitalize="characters">
+      <button id="joinBtn">Join room</button>
+      <p id="joinMessage" class="join-message"></p>
+    </div>
+  </div>
+
+  <div id="gameScreen" class="screen game-screen hidden">
+    <div class="table-shell">
+      <header class="topbar">
+        <div class="brand"><div class="brand-title">☼ BONDI</div><div class="brand-sub">MALDIVIAN CARD GAME</div></div>
+        <div class="game-chip"><b>Game <span id="gameNo">0</span> / 10</b><small>Table # <span id="roomCode"></span></small><em>↺ ANTICLOCKWISE</em></div>
+        <div class="top-actions"><button id="rulesBtn">Rules</button><button id="shareBtn">Share</button><button id="leaveBtn">Leave</button></div>
+      </header>
+
+      <div id="players" class="players" aria-label="Other players"></div>
+
+      <main class="centre">
+        <div id="status" class="status">Waiting...</div>
+        <div id="resolution" class="resolution hidden"></div>
+        <div id="wholeHandOffer" class="whole-hand-offer hidden"></div>
+        <div id="bustle" class="bustle"><span class="bustle-label">BUSTLE</span></div>
+        <div class="led-chip">Led suit: <b id="ledSuit">—</b></div>
+      </main>
+
+      <section class="my-zone">
+        <div id="myBadge" class="my-badge"><div class="avatar">YOU<span id="myCount">0</span></div><b id="myName"></b></div>
+        <div id="hand" class="hand" aria-label="Your cards"></div>
+      </section>
+
+      <aside class="score-panel">
+        <h3>Scores (Total)</h3>
+        <div class="score-wrap"><table id="scoreTable"></table></div>
+      </aside>
+
+      <aside class="side-controls">
+        <button id="sortBtn">↕<span>Sort</span></button>
+      </aside>
+
+      <footer class="footerbar">
+        <div id="hostActions"></div>
+        <span>Play • Connect • Enjoy</span><b>BONDI v2.0</b>
+      </footer>
+    </div>
+  </div>
+
+  <div id="rulesModal" class="modal hidden">
+    <div class="modal-card rules-card">
+      <h2>BONDI Rules</h2>
+      <p><b>Direction:</b> all turns proceed anticlockwise.</p>
+      <p><b>Lead:</b> the A♠ holder starts Game 1 but may lead any card. The previous game's BONDI starts the next game.</p>
+      <p><b>Follow suit:</b> if you have the led suit, you must play it.</p>
+      <p><b>Bondi:</b> the first off-suit card stops the trick immediately. The highest card of the led suit picks up the entire Bustle.</p>
+      <p><b>Hingaifi:</b> if everyone follows suit, the Bustle is discarded and the highest led-suit card leads next.</p>
+      <p><b>Whole hand:</b> only between tricks, if an adjacent active player has 1–5 cards, the immediately next active player anticlockwise from them may take their whole hand. The player giving the cards finishes immediately.</p>
+      <p><b>Match:</b> finish order scores N−1 down to 0. Ten games are played. Equal final totals are tied.</p>
+      <button id="rulesClose">Close</button>
+    </div>
+  </div>
+
+  <div id="resultModal" class="modal hidden">
+    <div class="modal-card">
+      <h2 id="resultTitle">Game Result</h2>
+      <div id="resultBody"></div>
+      <button id="resultClose">Close</button>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

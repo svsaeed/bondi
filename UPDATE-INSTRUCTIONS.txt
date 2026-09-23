@@ -1,0 +1,18 @@
+BONDI ONLINE MULTIPLAYER v2.0 UPDATE
+
+Replace these four files in your existing GitHub repository:
+- public/index.html
+- public/style.css
+- public/app.js
+- src/index.js
+
+Then commit. Your existing Cloudflare Git integration should automatically redeploy.
+
+NEW IN v2.0
+- Entire turn sequence is anticlockwise.
+- Table seating is displayed relative to each user with the next anticlockwise seat on the right.
+- Whole-hand rule for 1–5 cards between tricks only.
+- Eligible player may take the entire adjacent hand; that player finishes immediately.
+- Whole-hand transfer has its own on-screen status and short action lock.
+- Built-in Rules panel.
+- Existing Hingaifi/Bondi labels, suit-break visibility delay, room leaving, reconnection, card counts and 10-game scoring remain included.
